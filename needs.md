@@ -1,0 +1,47 @@
+# deRSE IT-Anforderungen
+
+- DNS
+    - mehrere, frei wählbare Domains
+    - Möglichkeit zu schneller, direkter Änderung von Einträgen von Subdomains (u.a. A, CNAME)
+- Email
+    - mehrere, einfache Verteiler
+    - mehrere Mailinglisten
+        - Archiv
+        - Datenvolumen potentiell >1GB / Monat
+        - private und öffentliche Listen
+        - wenn möglich unter eigener Domain
+        - schnelle Einrichtung & Konfiguration durch uns
+- Webseite
+    - unter eigener Domain
+    - momentan: git + jekyll + automatisches Bauen
+- Datenrepositorien
+    - git
+    - öffentlich und privat
+- VMs für Projekte/Konferenzen
+    - wenn wieder pretalx/pretix: root-Rechte
+    - in Dtl.
+- sichere Datenablage
+    - in Dtl.
+    - Ende-zu-Ende Verschlüsselung der Daten: keine Klardaten auf Server
+    - "komfortabler" Clientzugang
+- Kalender
+    - öffentlich
+    - guter Support in diversen Anwendungen
+- Chat
+    - Gruppengröße > 100
+    - Echtzeit
+    - browserbasiert (OS-unabhängig)
+    - Unterstützung für Bilder/Links
+- Twitter
+    - Announceaccount
+- Textpads
+    - in Dtl. (teilweise nichtöffentlich)
+    - wenigstens per Passwort/Cryptlink schützbar
+    - Arbeiten im Team und in Echtzeit
+- Vereinsverwaltung
+    - lauffähig unter Linux und Windows
+    - bewährtes Produkt
+    - Klartextexport möglich (kein harter vendor-lock-in)
+    - Arbeiten durch mehrere Personen wengistens durch export/import bzw. backup/restore möglich
+    - wenn möglich: open source
+
