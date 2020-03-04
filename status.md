@@ -45,6 +45,7 @@
         - im Moment: Datenablage für Vereinsinterna
 - Kalender
     - [Google](deRSE@calender.google.com)
+    - [Google](https://calendar.google.com/calendar?cid=amszcWVlaWlja3YwdWM5cnJoMzlrdWVqOWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) für Vorstand (nicht-öffentlich)
 - Chat
     - [Slack](de-rse): nicht mehr benutzen (aber noch vorhanden)
     - [RocketChat](https://chat.gwdg.de)
