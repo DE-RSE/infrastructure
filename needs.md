@@ -2,39 +2,42 @@
 
 - DNS
     - mehrere, frei wählbare Domains
-    - Möglichkeit zu schneller, direkter Änderung von Einträgen von Subdomains (u.a. A, CNAME)
+    - Möglichkeit zu schneller, schneller (bzw. direkter) Änderung von Einträgen von Subdomains (u.a. A, CNAME)
 - Email
     - mehrere, einfache Verteiler
     - mehrere Mailinglisten
         - Archiv
         - Datenvolumen potentiell >1GB / Monat
         - private und öffentliche Listen
-        - wenn möglich unter eigener Domain
+        - unter eigener Domain!
         - schnelle Einrichtung & Konfiguration durch uns
 - Webseite
     - unter eigener Domain
     - momentan: git + jekyll + automatisches Bauen
+    - inkl. Webspace?
 - Datenrepositorien
     - git
     - öffentlich und privat
-- VMs für Projekte/Konferenzen
+- VMs für Projekte/Konferenzen (optional)
     - wenn wieder pretalx/pretix: root-Rechte
     - in Dtl.
-- sichere Datenablage
+    - beim selben Anbieter
+- sichere Datenablage (Umzug zukünftig optional)
     - in Dtl.
     - Ende-zu-Ende Verschlüsselung der Daten: keine Klardaten auf Server
     - "komfortabler" Clientzugang
-- Kalender
+    - beim selben Anbieter
+- Kalender (Umzug zukünftig optional)
     - öffentlich
     - guter Support in diversen Anwendungen
-- Chat
+- Chat (Umzug zukünftig optional)
     - Gruppengröße > 100
     - Echtzeit
     - browserbasiert (OS-unabhängig)
     - Unterstützung für Bilder/Links
 - Twitter
     - Announceaccount
-- Textpads
+- Textpads (Umzug zukünftig optional)
     - in Dtl. (teilweise nichtöffentlich)
     - wenigstens per Passwort/Cryptlink schützbar
     - Arbeiten im Team und in Echtzeit
