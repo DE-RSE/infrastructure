@@ -22,6 +22,7 @@
             - Vorstand (<10 Mitglieder): vorstand@de-rse.org
         - öffentliche Listen:
             - Hauptliste (>100 Mitglieder): liste@de-rse.org
+            - https://ml-cgn04.ispgateway.de/mailman/listinfo/liste_de-rse.org
             - Konferenzlisten (>100 Mitglieder): konferenz-updates@de-rse.org, konferenz@de-rse.org
         - Projektlisten
             - NFDI4RSE: rse4nfdi@de-rse.org
