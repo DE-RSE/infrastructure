@@ -47,4 +47,4 @@
     - Klartextexport möglich (kein harter vendor-lock-in)
     - Arbeiten durch mehrere Personen wengistens durch export/import bzw. backup/restore möglich
     - wenn möglich: open source
-
+    - Mitgliederversammlung und Gremienarbeit: https://openslides.com/de   
