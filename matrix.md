@@ -8,10 +8,10 @@ Which rooms are suggested to those joining the space is decided by the de-RSE mo
 
 All rooms in our space have to abide by the following rules:
 
-- The functional account @TBD@TBD.TBD mus be added as an admin.
+- The functional account @de-rse:matrix.org must be added as an admin.
 - Rooms must not be encrypted and the history should be readable by joining users.
   We want newcomers to be able to join ongoing discussions.
-- Every room should have logo.
+- Every room should have a logo.
   You can use the de-RSE logo as a default, if you have nothing better.
 
 There is a set of rooms that is moderated by a team of the association.
