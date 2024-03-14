@@ -59,6 +59,7 @@
             - derse20 (derse20 Orga)
             - derse_vorstand
             - nfdi4rse-orga
+     - [Matrix](matrix.md)
 - Twitter
     - @rse_de: Stephan Druskat
 - Mastodon
