@@ -1,35 +1,48 @@
-# Cloudron matches for deRSE IT-Anforderungen
+# Vorschlag der AG Infrastruktur zur ersten Sitzung des Sprecherrats
 
-## Overview
+- Jan-Philipp Thiele
+- Philipp Schäfer
+- Philipp Sommer
 
-- geplant ist, die domain de-rse.org selber über einen DNS-Provider zu managen (z.B. https://inwx.de)
-- als Infrastruktur wollen wir einen _Virtual private Server_ (VPS) mit [_Cloudron_][cloudron] als Betriebssystem. Der VPS
-  sollte in einem deutschen Rechenzentrum gehostet sein. Mögliche Anbieter für solche VPS sind
+## Überblick
 
-  - windcloud.de: https://windcloud.de/produkte/vps/
+Unsere Vorschläge basieren auf den in [needs.md](./needs.md) genannten Anforderungen,
+soweit wir sie verstanden haben,
+sowie den in [status.md](./status.md) beschriebenen Status Quo.
+Wenn wir etwas nicht verstanden haben, gehen wir darauf im Text ebenfalls ein.
 
-- Die jekyll-basierte statische Website von de-rse.org wollen wir in ein Community Portal umwandeln, das mit einem Content-Management-System ausgestattet ist,
-  ein Event-Management beinhaltet, verschiedene Kategorieren von Arbeitsgruppen abbilden kann und einen _Member space_ implementiert
+Der nötige Aufwand,
+der beim Selbsthosten von Diensten aufzuwenden wäre,
+teilt unsere Vorschläge in zwei Gruppen auf.
 
-  - Community-Portal (Kontakt: Philipp Sommer): https://codebase.helmholtz.cloud/hcdc/django/clm-community/django-academic-community/
-  - Deployment via Cloudron: https://github.com/Chilipp/djac-app
-- Zum gemeinsamen Bearbeiten von Dateien wollen wir über den cloudron-Server eine Nextcloud-Instanz auspielen, mit geteilten Addressbüchern
-  und Kalendern. Alternativ könnte man cryptpad installieren, dort sind die Dateien ende-zu-ende verschlüsselt
-- Für das Finanzmanagement des de-rse wollen wir [Firefly III](https://www.cloudron.io/store/org.fireflyiii.cloudronapp.html) auf dem
-  Server installieren
+Die Dienste, die wir selbst hosten,
+würden wir auf einer VM,
+z.B. bei dem in Deutschland sitzenden Hoster [windcloud](https://windcloud.de/produkte/vps),
+hosten und über die Software [Cloudron](https://cloudron.io) managen.
+Beide Vorschläge basieren auf privater Erfahrung mit Anbieter beziehungsweise Software im AK Infrastruktur.
+Cloudron macht das hosten von vielen bekannten Webanwendungen für 15$ pro Monat sehr einfach.
 
-[cloudron]: https://cloudron.io
+## Konkrete Vorschläge
 
-## Detailed feature overview
+### DNS
 
-folgende Liste basiert auf [needs.md](./needs.md)
+Gebraucht wird:
 
-> - DNS
->     - mehrere, frei wählbare Domains
->     - Möglichkeit zu schneller, schneller (bzw. direkter) Änderung von Einträgen von Subdomains (u.a. A, CNAME)
+>  - mehrere, frei wählbare Domains
+>  - Möglichkeit zu schneller, schneller (bzw. direkter) Änderung von Einträgen von Subdomains (u.a. A, CNAME)
 
-Durch die Nutzung von inwx.de kann die Domain eigenständig verwaltet werden und subdomains können einfach angelegt werden. 
-Das Routing übernimmt dann cloudron auf dem VPS (jede App auf cloudron läuft über eine eigene domain/subdomain).
+Durch die Nutzung eines passenden Anbieters kann die Domain eigenständig verwaltet und können Subdomains einfach angelegt werden.
+Derzeit nutzen wir [Domain Factory](https://www.df.eu).
+Hier fehlt uns als AG Zugang.
+
+Sollten dort Möglichkeiten fehlen, könnten wir zu [INWX](inwx.de) wechseln.
+
+Das Routing für die verschiedenen Dienste übernähme dann Cloudron.
+Jede Anwendung auf Cloudron liefe über eine eigene Subdomain.
+
+### E-Mail
+
+Gebraucht wird:
 
 > - Email
 >     - mehrere, einfache Verteiler
@@ -40,49 +53,85 @@ Das Routing übernimmt dann cloudron auf dem VPS (jede App auf cloudron läuft �
 >         - unter eigener Domain!
 >         - schnelle Einrichtung & Konfiguration durch uns
 
-Einfache Verteiler können über cloudron selber unkompliziert angelegt werden. Es handelt sich hierbei um ein einfaches Forwarding.
-Mitglieder können aber nur von Admins über das Cloudron Web-Frontend (oder via API) hinzugefügt werden. Eine 
-Self-Subscribe-Funktion müsste per separater App organisiert werden.
+Wir wollen keine Mailinglisteninfrastruktur selbst hosten, da das sehr aufwendig ist.
+Auch Cloudron bietet das nicht als vorkonfigurierte Anwendung an (siehe [Diskussion im Forum](https://forum.cloudron.io/topic/6012/configure-haraka-for-mailman3/9?_=1708443801561)).
 
-Mailinglisten können leider über cloudron nicht konfiguriert werden, lediglich einfache Weiterleitungen an mehrere Adressen.
-Mailman (oder sympa) zu administrieren ist leider auch alles andere als trivial ([s. Cloudron forum][mailman-discussion]). Einzige 
-Möglichkeit eine Mailingliste über einen eigenen Server laufen zu lassen, wäre eine separate Django-App für das Community-Portal.
-Hier würde man eine extra-Mailbox in Cloudron einrichten die dann von der Django-App via IMAP ausgelesen wird an die Subscriber der
-Liste weiterleitet.
+Daher müssen wir bei einem externen Anbieter,
+derzeit ???,
+bleiben.
 
-[mailman-discussion]: https://forum.cloudron.io/topic/6012/configure-haraka-for-mailman3/9?_=1708443801561
+Da man nur einen MX-Record pro Domain haben kann,
+haben wir hier drei Möglichkeiten:
+
+- ML belassen mit neuen Subdomains für die VM  (z.B. infra.de-rse.org und mail.de-rse.org).
+- ML belassen mit neuer Subdomain für die ML (z.B. \<topic\>@ml.de-rse.org).
+
+Das würde aber auch bedeuten,
+dass wir die Domain nicht mehr über Cloudron verwalten könnten und damit für die damit gehosteten Dienste ggf. eine eigene Subdomain,
+z.B. infra.de-rse.org,
+nutzen müssten.
+Das würde auch für E-Mail-Konten,
+die wir über Cloudron verwalten gelten,
+für die aber eine zusätzlich Subdomain,
+z.B. mail.de-rse.org,
+möglich wäre.
+
+### Webseite
+
+Gebraucht wird:
 
 > - Webseite
 >     - unter eigener Domain
 >     - momentan: git + jekyll + automatisches Bauen
 >     - inkl. Webspace?
 
-Auch wenn git + jekyll ein guter und transparenter Workflow ist, ist das Editieren von Content für nicht jekyll-affine Nutzer
-recht kompliziert. Das führt dazu, dass nur wenige Personen bei der Website aktiv beitragen. Deshalb wollen wir ein Community-Portal
-mit einem Content-Management-System haben, in dem Berechtigungen entsprechend vergeben werden können, um Content auf der Website zu
-editieren.
+Hier gibt es zwei Vorschläge.
+
+Wir bleiben bei dem aktuellen Workflow git + jekyll und hosten es auf eigener Infrastruktur (z.B. via <https://docs.cloudron.io/apps/githubpages/>),
+wobei Quellen und CI auf GitHub verbleiben (siehe unten).
+
+Oder wir nutzen das [Django Academic Community Portal](https://codebase.helmholtz.cloud/hcdc/django/clm-community/django-academic-community/),
+dass ein CMS mit Webinterface beinhaltet.
+Philipp Sommer ist Entwickler dieser Software und betreibt sie für andere wissenschaftliche Communities bereits.
+Sie hat noch weitere Features,
+die wir hier nicht im Detail vorstellen.
+
+### Datenrepositorien
+
+Gebraucht wird:
 
 > - Datenrepositorien
 >     - git
 >     - öffentlich und privat
 
-cloudron bietet einige Apps zum Code-Hosting an, darunter auch gitlab (https://www.cloudron.io/store/index.html#git). Zu bedenken ist, 
-dass GitLab selber ziemlich ressourcen-hungrig ist. Gitea ist da vielleicht einfacher. Alternativ, wenn es nicht unbedingt Gitlab sein muss,
-kann einfach eine nextcloud-Instanz gehostet werden werden.
+Bei diesem Punkt hätten wir gerne konkretere Nutzungsarten beschrieben.
+Wir gehen davon aus,
+dass wir kein frei Verfügbares Hosting für Mitglieder angedacht ist.
 
-https://www.cloudron.io/store/index.html#sync
+Bekannt aus der Vergangenheit ist die Ablage von Dateien,
+die im Rahmen der Organisation von Veranstaltungen anfallen.
+
+### VMs
+
+Gebraucht wird:
 
 > - VMs für Projekte/Konferenzen (optional)
 >     - wenn wieder pretalx/pretix: root-Rechte
 >     - in Dtl.
 >     - beim selben Anbieter
 
-VMs können bei windcloud.de jederzeit dazu bestellt werden. Allerdings bietet das Community Portal auch ein Event-Management an 
-über das Abstracts eingereicht werden können und Registrierungen gemanaged werden können. Einzelne Events können grundsätzlich auch
-über eigene Domains bekommen. Eine Bezahlinfrastruktur wird dadurch aber noch nicht implementiert.
+Hier fragen wir uns,
+was wir über die in den anderen Punkten genannten Diensten noch mit VM(s) machen wollen?
+Ist zu erwarten,
+dass wir in absehbarer Zeit Pretalx/Pretix/Indico/etc. für eine Veranstaltung selbst hosten,
+wenn wir bei der Organistation der deRSE 2024 Konferenz so genau darauf geachtet haben,
+dass wir als Verein die Organisation nicht in einer Weise unterstützen,
+die steuerrechtliche Konsequenzen hat?
 
-Cloudron bietet aber verschiedene Apps an (z.B. [InvoiceNinja](https://www.cloudron.io/store/index.html#finance)) um invoices zu erstellen
-und accounts zu managen (hier fehlt aber noch die Erfahrung und Evaluierung).
+
+### Sichere Datenablage
+
+Gebraucht wird:
 
 > - sichere Datenablage (Umzug zukünftig optional)
 >     - in Dtl.
@@ -90,19 +139,20 @@ und accounts zu managen (hier fehlt aber noch die Erfahrung und Evaluierung).
 >     - "komfortabler" Clientzugang
 >     - beim selben Anbieter
 
-Mehrere Apps auf cloudron unterstützen die E2EE Ablage und Bearbeitung von Dokumenten oder sensiblen Informationen.
+Unser Vorschlag ist es CryptPad auf der eigenen VM via Cloudron zu hosten.
+Es bietet alle genannten Anforderungen, außer den komfortablen Clientzugang, da alles via Webinterface bedient wird.
 
-- [Cryptpad](https://www.cloudron.io/store/fr.cryptpad.cloudronapp.html) zur Bearbeitung und Speicherung von Dokumenten, Tabellen, etc.
-- [PrivateBin](https://www.cloudron.io/store/info.privatebin.cloudronapp.html) für One-Time-Secrets oder Dateien
-- [VaultWarden](https://www.cloudron.io/store/com.github.bitwardenrs.html) als E2EE-Passwort-Speicher oder zum Versenden von Dateien
+### Calendar
+
+Gebraucht wird:
 
 > - Kalender (Umzug zukünftig optional)
 >     - öffentlich
 >     - guter Support in diversen Anwendungen
 
-Ein Kalender oder mehrere Kalender können über eine nextcloud-Installation gemanaged werden. Öffentliche Kalender können via 
-Open Web Calendar dargestellt werden (https://www.cloudron.io/store/index.html#). Für das Community Portal ist im Laufe des Jahres
-eine Kalender-Implementierung geplant.
+### Chat
+
+Gebraucht wird:
 
 > - Chat (Umzug zukünftig optional)
 >     - Gruppengröße > 100
@@ -110,30 +160,28 @@ eine Kalender-Implementierung geplant.
 >     - browserbasiert (OS-unabhängig)
 >     - Unterstützung für Bilder/Links
 
-Das Community-Portal liefert eine Chat-Infrastruktur. Vorteil ist, dass dort direkt die Community-Struktur abgebildet werden
-kann (z.B. Chapter, oder Arbeitskreise) und kein zusätzliches Tool konfiguert werden muss. E2EE ist auch möglich. Die 
-Chat-Funktionalitäten sind noch nicht voll ausgereift und es gibt noch keine Integrationen mit anderen Chat-Programmen 
-(mit Ausnahme von Email).
+Dieser Punkt sollte nun mit dem Matrix-Space erfüllt sein.
 
-Alternativ lässt sich über Cloudron ein [Matrix-Server][matrix] installieren, zusammen mit einer [Element-Instanz][element].
+Wir wollen keine Matrix-Instanz selbst hosten und erst recht keine Konten vergeben.
 
-[matrix]: https://www.cloudron.io/store/org.matrix.synapse.html
-[element]: https://www.cloudron.io/store/im.riot.cloudronapp.html
+### Social Media
 
 > - Twitter
 >     - Announceaccount
 
-Will man Twitter nutzen, läuft das nicht über den derse-Server. Via Cloudron lässt sich aber eine Mastodon-Instanz aufsetzen
+Wir haben wohl einen Mastodon-Konto: https://mastodon.social/@de_rse
 
-https://www.cloudron.io/store/org.joinmastodon.cloudronapp.html
+Wir wollen keine eigene Mastodon-Instanz hosten, soweit nicht nötig.
+
+### Pads
 
 > - Textpads (Umzug zukünftig optional)
 >     - in Dtl. (teilweise nichtöffentlich)
 >     - wenigstens per Passwort/Cryptlink schützbar
 >     - Arbeiten im Team und in Echtzeit
 
-Cloudron unterstützt verschiedene Notizen-Apps, unter anderem HedeDoc (wie es auf https://pad.gwdg.de verwendet wird). In
-Verbindung mit den User-Management von Cloudron lassen sich hier auch geschützte Dokumente erstellen und gemeinsam bearbeiten.
+
+### Vereinsverwaltung
 
 > - Vereinsverwaltung
 >     - lauffähig unter Linux und Windows
@@ -141,13 +189,9 @@ Verbindung mit den User-Management von Cloudron lassen sich hier auch geschützt
 >     - Klartextexport möglich (kein harter vendor-lock-in)
 >     - Arbeiten durch mehrere Personen wengistens durch export/import bzw. backup/restore möglich
 >     - wenn möglich: open source
->     - Mitgliederversammlung und Gremienarbeit: https://openslides.com/de   
+>     - Mitgliederversammlung und Gremienarbeit: https://openslides.com/de
 
-Die Vereinsverwaltung liese sich über das Community-Portal abbilden. Das Community-Portal ist eine recht neue
-Software, die momentan noch sehr viel weiterentwickelt wird. Es implementiert eine Versionskontrolle und es können verschiedene
-Gruppen abgebildet werden und mit Berechtigungen ausgestattet werden. Das Community-Portal ist [open-source unter EUPL-1.2][djac].
+Wir gehen davon aus, dass bezüglich der Mitglieder-/Finanzverwaltung (JVerein) kein Handlungsbedarf besteht.
 
-Openslides ist nicht trivial zu installieren und zu administrieren. Das Community-Portal kann aber die notwendigen features abbilden,
-personalisierte Umfragen und Abstimmungen könnten per zusätlicher Django-App implementiert werden.
-
-[djac]: https://codebase.helmholtz.cloud/hcdc/django/clm-community/django-academic-community
+Welche Anforderungen an Software, für Mitgliederversammlungen, gibt es? Was ist das Budget pro Sitzung?
+Welche Anforderungen an Software, die die Gremienarbeit unterstützt, gibt es?
