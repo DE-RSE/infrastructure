@@ -3,7 +3,13 @@
 ## Stand
 
 - DNS
-    - Hosting über FL (domainfactory)
+    - Hosting über jpberlin
+        - Grund: DNS muss beim Mailinglistenadmin sein, bei so ziemlich allen
+                 Anbietern von Mailinglisten (Spamkontrolle)
+    - geparkt:
+        - derse.org
+        - forschungssoftware.org
+        - wissenschaftliche-software.org
     - de-rse.org
         - de-rse.org A auf github
         - *.de-rse.org A auf Domainhoster
@@ -11,25 +17,24 @@
         - www.de-rse.org CNAME auf github-repo
         - MX auf Domainhoster
     - rse4nfdi.de
-        - wird mittelfristig gelöscht
+        - wurde freigegeben
 - Email
     - Verteiler
-        - nfdi4rse-orga@de-rse.org, rse4nfdi-orga@de-rse.org, rse4nfdi-twitter@de-rse.org
+        - gelöscht: nfdi4rse-orga@de-rse.org, rse4nfdi-orga@de-rse.org, rse4nfdi-twitter@de-rse.org
     - Mailinglisten
-        - Archiv momentan nicht möglich
-        - Datenvolumen gesamt < 1GB / Monat
         - private Listen:
             - Vorstand (<10 Mitglieder): vorstand@de-rse.org
         - öffentliche Listen:
-            - Hauptliste (>100 Mitglieder): liste@de-rse.org
-            - https://ml-cgn04.ispgateway.de/mailman/listinfo/liste_de-rse.org
-            - Konferenzlisten (>100 Mitglieder): konferenz-updates@de-rse.org, konferenz@de-rse.org
+            - liste@de-rse.org: Hauptliste (>100 Mitglieder)
+            - community-support@de-rse.org
+            - matrix-support@de-rse.org
+            - gelöscht: Konferenzlisten (>100 Mitglieder): konferenz-updates@de-rse.org, konferenz@de-rse.org
         - Projektlisten
-            - NFDI4RSE: rse4nfdi@de-rse.org
+            - gelöscht: NFDI4RSE: rse4nfdi@de-rse.org
 - Websites
     - https://de-rse.org
         - github: https://github.com/DE-RSE/de-rse.github.io (master)
-    - https://www.rse4nfdi.de
+    - gelöscht: https://www.rse4nfdi.de
         - https://github.com/rse4nfdi/www (gh-pages)
     - Chapter: TODO
 - Github Organizations
@@ -40,7 +45,7 @@
 - Virtual Machines
     - derse19.uni-jena.de
         - Konferenzverwaltung derse19 (pretalx / pretix)
-        - sollte 2020  entfernt werden (Daten in Backup)
+        - sollte entfernt werden (Daten in Backup)
 - Cloudspace
     - owncloud (MPI-CBG) 
         - im Moment: Datenablage für Vereinsinterna
@@ -48,8 +53,8 @@
     - [Google](deRSE@calender.google.com)
     - [Google](https://calendar.google.com/calendar?cid=amszcWVlaWlja3YwdWM5cnJoMzlrdWVqOWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) für Vorstand (nicht-öffentlich)
 - Chat
-    - [Slack](de-rse): nicht mehr benutzen (aber noch vorhanden)
-    - [RocketChat](https://chat.gwdg.de)
+    - alt und unbenutzt: [Slack](de-rse): nicht mehr benutzen (aber noch vorhanden)
+    - alt und unbenutzt: [RocketChat](https://chat.gwdg.de)
         - öffentliche Gruppen
             - derse
             - nfdi4rse
@@ -72,3 +77,4 @@
     - Stephan Janosch
     - Martin Hammitzsch
 - Webkonferenzen: conf.dfn.de
+
