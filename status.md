@@ -40,7 +40,7 @@
 - Github Organizations
     - [DE-RSE](https://github.com/orgs/DE-RSE/dashboard)
         - educational discount
-    - [rse4nfdi](https://github.com/orgs/rse4nfdi/dashboard)
+    - archiviert: [rse4nfdi](https://github.com/orgs/rse4nfdi/dashboard)
         - currently mainly for www repo
 - Virtual Machines
     - derse19.uni-jena.de
