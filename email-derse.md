@@ -14,7 +14,7 @@ Click this to add a new address: enter only the part before the `@`-sign in this
 
 ## Client configuration
 
-There is no web mail available: use whatever other email client you are used to.
+There is also [web mail](https://webmail.jpberlin.de/) available or use whatever other email client you are used to.
 The necessary details to configure the new INBOX are [provided by jpberlin](https://jpberlin.de/hilfe/wie-kann-ich-meine-e-mails-mit-meinem-mailprogramm-abrufen).
 The following only copies some of this information in case the former link goes stale.
 
