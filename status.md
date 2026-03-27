@@ -64,6 +64,8 @@
     - [Google](https://calendar.google.com/calendar?cid=amszcWVlaWlja3YwdWM5cnJoMzlrdWVqOWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) für Vorstand (nicht-öffentlich; über Account von Stephan Janosch)
     - eigene Nextcloud:
         - Vorstand: https://cloud.de-rse.org/remote.php/dav/calendars/USERNAME/vorstand_shared_by_vorstand
+            - USERNAME ist der eigene Nutzername in der Nextcloud
+            - Das Passwort muss man als app-Passwort unter https://cloud.de-rse.org/settings/user/security selbst erstellen (unten: "Create new app password")
 - Chat
     - alt und unbenutzt: [Slack](de-rse): nicht mehr benutzen (aber noch vorhanden)
     - alt und unbenutzt: [RocketChat](https://chat.gwdg.de)
