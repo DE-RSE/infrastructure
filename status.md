@@ -6,16 +6,21 @@
     - Hosting über jpberlin
         - Grund: DNS muss beim Mailinglistenadmin sein, bei so ziemlich allen
                  Anbietern von Mailinglisten (Spamkontrolle)
-    - geparkt:
-        - derse.org
-        - forschungssoftware.org
-        - wissenschaftliche-software.org
     - de-rse.org
-        - de-rse.org A auf github
-        - *.de-rse.org A auf Domainhoster
-        - derse2019.de-rse.org CNAME auf github-repo
-        - www.de-rse.org CNAME auf github-repo
-        - MX auf Domainhoster
+        - `de-rse.org`: `A` auf github
+        - `de-rse.org`: `MX` auf jp-berlin (Mailinglisten, Vorstandsemailkonten)
+        - `*.de-rse.org`: `A auf github
+        - `*.de-rse.org`: `MX` auf jp-berlin
+        - `www.de-rse.org`: `CNAME` auf `de-rse.github.io`
+        - `derse2019.de-rse.org`: `CNAME` auf github
+        - `derse2019.de-rse.org`: `MX` auf jp-berlin
+    - forschungssoftware.org
+        - `forschungssoftware.org`: `A` und `AAAA` auf github
+        - `forschungssoftware.org`: `MX` auf jp-berlin
+        - `www.forschungssoftware.org`: `CNAME` auf `de-rse.github.io`
+    - geparkt:
+        - derse.org -> de-rse.org
+        - wissenschaftliche-software.org -> forschungssoftware.info
     - rse4nfdi.de
         - wurde freigegeben
 - Email
@@ -34,9 +39,12 @@
 - Websites
     - https://de-rse.org
         - github: https://github.com/DE-RSE/de-rse.github.io (master)
+    - https://de-rse.org/chapter
+        - https://github.com/DE-RSE/chapter
+    - https://forschungssoftware.info
+        - https://github.com/DE-RSE/forschungssoftware.info
     - gelöscht: https://www.rse4nfdi.de
-        - https://github.com/rse4nfdi/www (gh-pages)
-    - Chapter: TODO
+        - https://github.com/rse4nfdi/www
 - Github Organizations
     - [DE-RSE](https://github.com/orgs/DE-RSE/dashboard)
         - educational discount
@@ -49,9 +57,13 @@
 - Cloudspace
     - owncloud (MPI-CBG) 
         - im Moment: Datenablage für Vereinsinterna
+    - eigene Nextcloud
+        - für Verein noch nicht benutzt
+        - für Projekte (FutuRSI) benutzt
 - Kalender
-    - [Google](deRSE@calender.google.com)
-    - [Google](https://calendar.google.com/calendar?cid=amszcWVlaWlja3YwdWM5cnJoMzlrdWVqOWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) für Vorstand (nicht-öffentlich)
+    - [Google](https://calendar.google.com/calendar?cid=amszcWVlaWlja3YwdWM5cnJoMzlrdWVqOWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) für Vorstand (nicht-öffentlich; über Account von Stephan Janosch)
+    - eigene Nextcloud:
+        - Vorstand: https://cloud.de-rse.org/remote.php/dav/calendars/USERNAME/vorstand_shared_by_vorstand
 - Chat
     - alt und unbenutzt: [Slack](de-rse): nicht mehr benutzen (aber noch vorhanden)
     - alt und unbenutzt: [RocketChat](https://chat.gwdg.de)
@@ -75,6 +87,6 @@
     - oft kurzlebig und manchmal Link nicht öffentlich: hier nicht einzeln erwähnt
 - JVerein
     - Stephan Janosch
-    - Martin Hammitzsch
-- Webkonferenzen: conf.dfn.de
+    - Michael Meinel
+- Webkonferenzen: https://meet.academiccloud.de
 
